@@ -66,6 +66,18 @@ Llama 3
 - [ ] Phase 8 - Multi-Agent System
 - [ ] Phase 9 - Docker Deployment
 
+## 📸 Screenshots
+
+### FastAPI Swagger UI
+
+![Swagger](screenshots/fastapi-docs.png)
+
+### Chat Endpoint
+
+![Chat](screenshots/chat-endpoint1.png)
+![Chat](screenshots/chat-endpoint2.png)
+
+
 ## Author
 
 Parth Sarthi
