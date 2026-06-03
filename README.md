@@ -36,16 +36,35 @@ A complete hands-on journey from running local LLMs to building production-ready
 * Multi-Agent Systems
 
 ## Project Architecture
+## 🏗️ Architecture
 
-Browser
-↓
+```text
+User
+ │
+ ▼
 FastAPI
-↓
-Python
-↓
+ │
+ ▼
+Python Backend
+ │
+ ▼
 Ollama
-↓
+ │
+ ▼
 Llama 3
+```
+
+## 📍 Progress Tracker
+
+- [x] Phase 1 - Local LLM Deployment
+- [x] Phase 2 - FastAPI AI Backend
+- [ ] Phase 3 - Conversation Memory
+- [ ] Phase 4 - RAG with ChromaDB
+- [ ] Phase 5 - Embeddings
+- [ ] Phase 6 - Tool Calling
+- [ ] Phase 7 - AI Agents
+- [ ] Phase 8 - Multi-Agent System
+- [ ] Phase 9 - Docker Deployment
 
 ## Author
 
