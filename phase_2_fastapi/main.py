@@ -4,9 +4,10 @@ from ollama import chat
 
 app = FastAPI(
     title="Local AI Assistant",
-    description="FastAPI + Ollama + Llama3",
-    version="1.0.0"
+    version="2.0"
 )
+
+conversation_history = []
 
 class ChatRequest(BaseModel):
     message: str
@@ -15,23 +16,37 @@ class ChatRequest(BaseModel):
 def home():
     return {
         "status": "running",
-        "model": "llama3"
+        "memory_enabled": True
     }
 
 @app.post("/chat")
 def chat_with_ai(request: ChatRequest):
 
+    conversation_history.append(
+        {
+            "role": "user",
+            "content": request.message
+        }
+    )
+
     response = chat(
         model="llama3",
-        messages=[
-            {
-                "role": "user",
-                "content": request.message
-            }
-        ]
+        messages=conversation_history
+    )
+
+    ai_message = response["message"]["content"]
+
+    conversation_history.append(
+        {
+            "role": "assistant",
+            "content": ai_message
+        }
     )
 
     return {
-        "user_message": request.message,
-        "ai_response": response["message"]["content"]
+        "response": ai_message,
+        "history_length": len(conversation_history)
     }
+@app.get("/history")
+def get_history():
+    return conversation_history
