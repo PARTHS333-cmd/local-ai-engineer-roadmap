@@ -58,13 +58,12 @@ Llama 3
 
 - [x] Phase 1 - Local LLM Deployment
 - [x] Phase 2 - FastAPI AI Backend
-- [ ] Phase 3 - Conversation Memory
-- [ ] Phase 4 - RAG with ChromaDB
-- [ ] Phase 5 - Embeddings
-- [ ] Phase 6 - Tool Calling
-- [ ] Phase 7 - AI Agents
-- [ ] Phase 8 - Multi-Agent System
-- [ ] Phase 9 - Docker Deployment
+- [x] Phase 3 - Conversation Memory
+- [ ] Phase 4 - RAG with ChromaDB and Embeddings
+- [ ] Phase 5 - Tool Calling
+- [ ] Phase 6 - AI Agents
+- [ ] Phase 7 - Multi-Agent System
+- [ ] Phase 8 - Docker Deployment
 
 ## 📸 Screenshots
 
@@ -97,6 +96,52 @@ User: My name is Parth
 User: What is my name?
 
 AI: Your name is Parth
+
+# Phase 4 - Retrieval-Augmented Generation (RAG)
+
+## Objective
+
+Build a document-aware AI assistant capable of answering questions using custom knowledge sources.
+
+## Technologies
+
+* Ollama
+* Llama 3
+* ChromaDB
+* Sentence Transformers
+* FastAPI
+* LangChain
+
+## Architecture
+
+PDF
+↓
+Chunking
+↓
+Embeddings
+↓
+ChromaDB
+↓
+Semantic Search
+↓
+Llama 3
+↓
+Answer
+
+## Features
+
+* PDF Ingestion
+* Semantic Search
+* Vector Database Storage
+* Retrieval-Augmented Generation
+* Resume Question Answering
+
+## Example Questions
+
+* What projects are mentioned in the resume?
+* What technical skills are listed?
+* What is the final year project?
+
 
 ## Author
 
