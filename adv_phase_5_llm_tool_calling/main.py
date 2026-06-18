@@ -8,39 +8,51 @@ from tools import (
     calculator
 )
 
-app = FastAPI()
+from router import decide_tool
+
+app = FastAPI(
+    title="LLM Tool Calling Assistant"
+)
 
 class ChatRequest(BaseModel):
     message: str
 
+@app.get("/")
+def home():
+
+    return {
+        "status": "LLM Tool Calling Ready"
+    }
+
 @app.post("/chat")
 def chat_with_tools(request: ChatRequest):
 
-    user_message = request.message.lower()
+    # Let the LLM decide which tool to use
+    tool = decide_tool(
+        request.message
+    )
 
-    if "time" in user_message:
+    print(f"Selected Tool: {tool}")
 
-        tool_result = get_current_time()
+    # Time Tool
+    if tool == "time":
 
         return {
             "tool_used": "time",
-            "result": tool_result
+            "result": get_current_time()
         }
 
-    if any(
-        op in user_message
-        for op in ["+", "-", "*", "/"]
-    ):
-
-        tool_result = calculator(
-            user_message
-        )
+    # Calculator Tool
+    elif tool == "calculator":
 
         return {
             "tool_used": "calculator",
-            "result": tool_result
+            "result": calculator(
+                request.message
+            )
         }
 
+    # Fallback to normal LLM chat
     response = chat(
         model="llama3",
         messages=[
@@ -53,6 +65,5 @@ def chat_with_tools(request: ChatRequest):
 
     return {
         "tool_used": None,
-        "response":
-        response["message"]["content"]
+        "response": response["message"]["content"]
     }
