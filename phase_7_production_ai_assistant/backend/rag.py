@@ -6,7 +6,7 @@ embedding = SentenceTransformerEmbeddings(
 )
 
 vectorstore = Chroma(
-    persist_directory="../phase_4_rag/chroma_db",
+    persist_directory="../../phase_4_rag/chroma_db",
     embedding_function=embedding
 )
 
@@ -22,4 +22,12 @@ def search_resume(query):
             doc.page_content
             for doc in docs
         ]
+    )
+
+if __name__ == "__main__":
+
+    print(
+        search_resume(
+            "What projects are mentioned in my resume?"
+        )
     )
