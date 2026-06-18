@@ -12,3 +12,7 @@ def add_message(role, content):
 def get_history():
 
     return conversation_history
+
+def clear_history():
+
+    conversation_history.clear()

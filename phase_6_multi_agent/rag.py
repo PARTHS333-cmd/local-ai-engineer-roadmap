@@ -17,7 +17,7 @@ def search_resume(query):
         k=3
     )
 
-    return "\n".join(
+    return "\n\n".join(
         [
             doc.page_content
             for doc in docs
