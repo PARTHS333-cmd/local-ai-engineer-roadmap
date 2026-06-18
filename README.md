@@ -59,8 +59,8 @@ Llama 3
 - [x] Phase 1 - Local LLM Deployment
 - [x] Phase 2 - FastAPI AI Backend
 - [x] Phase 3 - Conversation Memory
-- [ ] Phase 4 - RAG with ChromaDB and Embeddings
-- [ ] Phase 5 - Tool Calling
+- [x] Phase 4 - RAG with ChromaDB and Embeddings
+- [x] Phase 5 - Tool Calling
 - [ ] Phase 6 - AI Agents
 - [ ] Phase 7 - Multi-Agent System
 - [ ] Phase 8 - Docker Deployment

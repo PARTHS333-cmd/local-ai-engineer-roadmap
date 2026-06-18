@@ -9,6 +9,8 @@ Available tools:
 
 time
 calculator
+resume_search
+chat
 
 Rules:
 
